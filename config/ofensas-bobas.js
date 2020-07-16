@@ -1,8 +1,4 @@
-const config = require('./config.js');
-var Twit = require('twit');
 const randomItem = require('random-item');
-
-var twitter = new Twit(config);
 
 var arrayComecos = [
     'isso aí é coisa de',
@@ -86,48 +82,6 @@ var arrayXingos = [
     'cocozento'
 ];
 
-function postaTweet(tweetToReply) {
-    var user = '@' + tweetToReply.in_reply_to_screen_name;
-    var tweet = user + " " + randomItem(arrayComecos).toUpperCase() + " " + randomItem(arrayXingos).toUpperCase() + "!!!!"
-    if (user == '@thidre') {
-        tweet = user + " te amo papai!!"
-    }
-    var params = {
-        status: tweet,
-        in_reply_to_status_id: tweetToReply.in_reply_to_status_id_str,
-    }
+var ofensa = randomItem(arrayComecos).toUpperCase() + " " + randomItem(arrayXingos).toUpperCase() + "!!!!";
 
-    twitter.post(
-        'statuses/update',
-        params,
-        function (err, data, response) {
-            // console.log(data);
-            console.log('tweet postado: ' + tweet);
-        }
-    );
-}
-
-// postaTweet();
-function buscaTweets() {
-    var stream = twitter.stream('statuses/filter', {track: "@xingabobo xingue"})
-    stream.on('tweet', function(tweet){
-        // console.log(tweet);
-        console.log("quem me marcou foi: " + tweet.user.screen_name);
-        console.log("pra responder: " + tweet.in_reply_to_screen_name);
-        if ((tweet.user.screen_name != 'xingabobo') 
-        && (tweet.in_reply_to_screen_name != 'xingabobo')
-        && (tweet.in_reply_to_screen_name != null)
-        ) 
-        {
-            postaTweet(tweet);
-            console.log(tweet.entities.user_mentions);
-        }
-        else
-        {
-            console.log("o tweet não será postado.");
-            console.log(tweet.entities.user_mentions);
-        }
-    });
-}
-
-buscaTweets();
+module.exports = ofensa;
