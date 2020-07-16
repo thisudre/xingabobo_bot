@@ -1,5 +1,5 @@
+const config = require('./config.js');
 var Twit = require('twit');
-var config = require('./config.js');
 const randomItem = require('random-item');
 
 var twitter = new Twit(config);
