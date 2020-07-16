@@ -87,3 +87,5 @@ function geraOfensa() {
     var ofensa = randomItem(arrayComecos).toUpperCase() + " " + randomItem(arrayXingos).toUpperCase() + "!!!!";
     return ofensa
 }
+
+module.exports = geraOfensa();
