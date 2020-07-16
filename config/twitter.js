@@ -1,5 +1,5 @@
 const Twit = require('twit');
-import { ofensa } from "./ofensas-bobas.js";
+ofensa = require("./ofensas-bobas.js");
 
 const twitter = new Twit({
     consumer_key: process.env.consumer_key,
@@ -10,7 +10,7 @@ const twitter = new Twit({
 
 twitter.postaTweet = function (tweetToReply) {
     var user = '@' + tweetToReply.in_reply_to_screen_name;
-    var tweet = user + " " + geraOfensa();
+    var tweet = user + " " + ofensa.geraOfensa();
     if (user == '@thidre') {
         tweet = user + " te amo papai!!"
     }
