@@ -1,4 +1,5 @@
 const Twit = require('twit')
+
 const twitter = new Twit({
     consumer_key: process.env.consumer_key,
     consumer_secret: process.env.consumer_secret,

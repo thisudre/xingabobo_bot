@@ -13,7 +13,6 @@ var server_host = process.env.YOUR_HOST || '0.0.0.0';
 function buscaTweets() {
     var stream = twitter.stream('statuses/filter', {track: "@xingabobo xingue"})
     stream.on('tweet', function(tweet){
-        // console.log(tweet);
         console.log("quem me marcou foi: " + tweet.user.screen_name);
         console.log("pra responder: " + tweet.in_reply_to_screen_name);
         if ((tweet.user.screen_name != 'xingabobo') 

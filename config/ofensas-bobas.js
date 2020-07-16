@@ -82,6 +82,12 @@ var arrayXingos = [
     'cocozento'
 ];
 
-var ofensa = randomItem(arrayComecos).toUpperCase() + " " + randomItem(arrayXingos).toUpperCase() + "!!!!";
+
+function geraOfensa() {
+    var ofensa = randomItem(arrayComecos).toUpperCase() + " " + randomItem(arrayXingos).toUpperCase() + "!!!!";
+    return ofensa
+}
+
+ofensa = geraOfensa();
 
 module.exports = ofensa;
