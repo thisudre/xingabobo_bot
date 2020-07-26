@@ -9,9 +9,9 @@ const bot = new Twit({
     access_token_secret: process.env.access_token_secret
 });
 
-bot.buscaTweet = function () {
+bot.buscaTweet = function (buscado) {
     console.log("chegou aqui?");
-    var stream = bot.stream('statuses/filter', {track: '@xingabobo xing'})
+    var stream = bot.stream('statuses/filter', {track: buscado})
     stream.on('tweet', function(tweet){
         console.log("tweet encontrado");
         bot.curteTweet(tweet.id_str);
