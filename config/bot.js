@@ -12,6 +12,7 @@ const bot = new Twit({
 bot.buscaTweet = function (buscados) {
     var stream = bot.stream('statuses/filter', {track: buscados})
     stream.on('tweet', function(tweet){
+        console.log("tweet encontrado");
         bot.curteTweet(tweet.id_str);
         if (
             (tweet.user.screen_name != 'xingabobo') 
