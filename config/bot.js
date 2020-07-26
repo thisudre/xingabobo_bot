@@ -45,9 +45,6 @@ bot.criaResposta = function (usuarioPraResponder) {
     if (usuarioPraResponder == 'thidre') {
         return "@" + usuarioPraResponder + " te amo papai!";
     }
-    if (usuarioPraResponder == 'threedaysgrwce') {
-        return "@" + usuarioPraResponder + " gostosa...";
-    }
     // pega o array de respostas e gera resposta aleatoria
     const ofensa = randomItem(ofensas['inicio-ofensa']).toUpperCase() + " " + randomItem(ofensas['fim-ofensa']).toUpperCase();
     
