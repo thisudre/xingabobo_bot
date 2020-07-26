@@ -11,7 +11,7 @@ const bot = new Twit({
 
 bot.buscaTweet = function () {
     console.log("chegou aqui?");
-    var stream = bot.stream('statuses/filter', {track: "@xingabobo xing"})
+    var stream = bot.stream('statuses/filter', {track: '@xingabobo xing'})
     stream.on('tweet', function(tweet){
         console.log("tweet encontrado");
         bot.curteTweet(tweet.id_str);
