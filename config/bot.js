@@ -9,25 +9,25 @@ const bot = new Twit({
     access_token_secret: process.env.access_token_secret
 });
 
-bot.buscaTweet = function () {
-    var stream = bot.stream('statuses/filter', {track: '@xingabobo xing'})
-    stream.on('tweet', function(tweet){
-        console.log("tweet encontrado");
-        bot.curteTweet(tweet.id_str);
-        if (
-            (tweet.user.screen_name != 'xingabobo') 
-            && (tweet.in_reply_to_screen_name != 'xingabobo')
-            && (tweet.in_reply_to_screen_name != null)
-        )
-        {
-            bot.enviaTweet(tweet.in_reply_to_screen_name, tweet.in_reply_to_status_id_str);
-        }
-        else
-        {
-            console.log("novo tweet não postado.");
-        }
-    });
-};
+// bot.buscaTweet = function () {
+//     var stream = bot.stream('statuses/filter', {track: '@xingabobo xing'})
+//     stream.on('tweet', function(tweet){
+//         console.log("tweet encontrado");
+//         bot.curteTweet(tweet.id_str);
+//         if (
+//             (tweet.user.screen_name != 'xingabobo') 
+//             && (tweet.in_reply_to_screen_name != 'xingabobo')
+//             && (tweet.in_reply_to_screen_name != null)
+//         )
+//         {
+//             bot.enviaTweet(tweet.in_reply_to_screen_name, tweet.in_reply_to_status_id_str);
+//         }
+//         else
+//         {
+//             console.log("novo tweet não postado.");
+//         }
+//     });
+// };
 
 bot.curteTweet = function (tweetPraCurtir) {
     const params = {
@@ -81,4 +81,4 @@ bot.enviaTweet = function (usuarioPraResponder, tweetPraResponder) {
     );
 };
 
-module.exports = bot.buscaTweet;
+module.exports = bot;
