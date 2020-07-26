@@ -9,8 +9,8 @@ const bot = new Twit({
     access_token_secret: process.env.access_token_secret
 });
 
-bot.buscaTweet = function (buscados) {
-    var stream = bot.stream('statuses/filter', {track: buscados})
+bot.buscaTweet = function () {
+    var stream = bot.stream('statuses/filter', {track: '@xingabobo xing'})
     stream.on('tweet', function(tweet){
         console.log("tweet encontrado");
         bot.curteTweet(tweet.id_str);
@@ -81,4 +81,4 @@ bot.enviaTweet = function (usuarioPraResponder, tweetPraResponder) {
     );
 };
 
-module.exports = bot;
+module.exports = bot.buscaTweet;
